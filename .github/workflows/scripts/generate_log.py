@@ -53,10 +53,17 @@ def fetch_health(gist_id: str, pat: str) -> tuple:
     return steps, distance
 
 
+def format_date_ja(date: str) -> str:
+    """YYYY-MM-DD を 2026年4月20日（月）形式に変換する"""
+    weekdays = ["月", "火", "水", "木", "金", "土", "日"]
+    d = datetime.date.fromisoformat(date)
+    return f"{d.year}年{d.month}月{d.day}日（{weekdays[d.weekday()]}）"
+
+
 def build_markdown(date: str, steps, distance, coding_str: str, commit_count, commit_messages: list) -> str:
     """活動ログのMarkdown文字列を生成して返す（ファイル書き込みはしない）"""
     commit_rows = "".join(f"| &nbsp;&nbsp;└ | {msg} | |\n" for msg in commit_messages)
-    return f"""# {date}
+    return f"""# {format_date_ja(date)}
 
 ## 活動ログ
 | カテゴリ | 内容 | 記録 |

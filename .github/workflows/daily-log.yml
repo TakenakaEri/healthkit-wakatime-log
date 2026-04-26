@@ -22,6 +22,7 @@ jobs:
           GH_PAT: ${{ secrets.GH_PAT }}
           WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
           HEALTH_GIST_ID: ${{ secrets.HEALTH_GIST_ID }}
+          GITHUB_USERNAME: ${{ secrets.GITHUB_USERNAME }}
       - run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
