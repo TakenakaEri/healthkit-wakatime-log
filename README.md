@@ -85,8 +85,6 @@ python3 .github/workflows/scripts/generate_log.py yyyy-mm-dd
 python3 .github/workflows/scripts/test_generate_log.py
 ```
 
-APIへの通信は発生しないため、環境変数の設定は不要です。
-
 ## 生成されるログの例
 
 ```markdown
