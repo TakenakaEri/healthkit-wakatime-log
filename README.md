@@ -50,8 +50,7 @@ activity_tracking/daily-logs/YYYY-MM-DD.md を自動生成・コミット
 
 ### 2. iOSショートカットの設定
 
-毎日23:59にHealthKitのデータをGistに送信するショートカットを設定します。  
-詳細は[Zenn記事](https://zenn.dev)を参照してください。
+毎日23:59にHealthKitのデータをGistに送信するショートカットを設定します。
 
 ## ログの手動生成
 
