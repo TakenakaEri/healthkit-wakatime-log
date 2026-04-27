@@ -1,6 +1,14 @@
 import os, requests, datetime, json, sys
 
 
+def get_required_env(name: str) -> str:
+    value = os.environ.get(name, "")
+    if not value:
+        print(f"❌ 環境変数 {name} が設定されていません。GitHub Secrets を確認してください。")
+        sys.exit(1)
+    return value
+
+
 def fetch_wakatime(api_key: str, date: str) -> str:
     """WakaTime APIからコーディング時間を取得して "Xh Ym" 形式で返す"""
     try:
@@ -80,11 +88,11 @@ def main():
         (datetime.datetime.now(jst) - datetime.timedelta(days=1)).date().isoformat()
     )
 
-    github_token    = os.environ["GITHUB_TOKEN"]
-    gh_pat          = os.environ["GH_PAT"]
-    wakatime_key    = os.environ["WAKATIME_API_KEY"]
-    gist_id         = os.environ["HEALTH_GIST_ID"]
-    github_username = os.environ.get("GITHUB_USERNAME", "your_github_username")
+    github_token    = get_required_env("GITHUB_TOKEN")
+    gh_pat          = get_required_env("GH_PAT")
+    wakatime_key    = get_required_env("WAKATIME_API_KEY")
+    gist_id         = get_required_env("HEALTH_GIST_ID")
+    github_username = get_required_env("GITHUB_USERNAME")
 
     coding_str             = fetch_wakatime(wakatime_key, today)
     commit_count, messages = fetch_github_commits(github_token, today, github_username)

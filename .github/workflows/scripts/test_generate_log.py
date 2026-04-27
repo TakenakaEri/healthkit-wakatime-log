@@ -15,7 +15,7 @@ def test_build_markdown_normal():
         commit_count=3,
         commit_messages=["fix bug", "add feature", "update README"]
     )
-    assert "# 2026-04-18" in md
+    assert "# 2026年4月18日（土）" in md
     assert "歩数 12000歩 / 8.5km" in md
     assert "2h 30m" in md
     assert "3 commits" in md
