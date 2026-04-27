@@ -61,7 +61,6 @@ activity_tracking/daily-logs/YYYY-MM-DD.md を自動生成・コミット
 
 ```bash
 cp .env.example .env
-# .env を編集して各値を設定する
 ```
 
 設定後、以下のコマンドで実行します。
