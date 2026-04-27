@@ -48,6 +48,8 @@ activity_tracking/daily-logs/YYYY-MM-DD.md を自動生成・コミット
 
 `GITHUB_TOKEN` はGitHub Actionsが自動で提供するため登録不要です。
 
+上記のシークレットが未設定の場合、GitHub Actionsはエラーで終了し、ログは生成されません。
+
 ### 2. iOSショートカットの設定
 
 毎日23:59にHealthKitのデータをGistに送信するショートカットを設定します。  
